@@ -1,0 +1,39 @@
+apiVersion: static-server.webprod.io/v1
+kind: StaticRepo
+metadata:
+  name: roubi
+  namespace: static
+spec:
+  hostname: roubi.fake.com
+  git:
+    repo: SOME_REPO
+    commit: SOME_COMMIT
+
+---
+
+apiVersion: static-server.webprod.io/v1
+kind: StaticRepo
+metadata:
+  name: voyah
+  namespace: static
+spec:
+  hostname: voyah.fake.com
+  cmd:
+    image: alpine/git:latest
+    command:
+      - /bin/sh
+      - -c
+      - echo $DATA_DIR && mkdir -p $DATA_DIR/cunbaemul/otan/ && echo "999999999" > $DATA_DIR/cunbaemul/otan/activate3
+
+---
+
+apiVersion: static-server.webprod.io/v1
+kind: StaticRepo
+metadata:
+  name: wiki
+  namespace: static
+spec:
+  hostname: docmost.fake.com
+  imageDir:
+    image: docmost/docmost:0.6.2
+    path: /app/apps/client/dist/

@@ -1,0 +1,27 @@
+nginx:
+  image:
+    repository: nginx
+    tag: 1.25.0-alpine
+    pullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 5m
+      memory: 16Mi
+
+controller:
+  image:
+    repository: ghcr.io/gowebprod/k8s-static-server/k8s-static-server
+    tag: v0.0.2
+    pullPolicy: Always
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 10m
+      memory: 64Mi
+
+securityContext: {}

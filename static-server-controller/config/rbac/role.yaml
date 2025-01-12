@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - static-server.webprod.io
+  resources:
+  - staticrepoes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - static-server.webprod.io
+  resources:
+  - staticrepoes/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - static-server.webprod.io
+  resources:
+  - staticrepoes/status
+  verbs:
+  - get
+  - patch
+  - update

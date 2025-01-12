@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- static-server_v1_staticrepo.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

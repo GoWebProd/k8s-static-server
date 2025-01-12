@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+  nginx.conf: |
+    server {
+        listen 80;
+        server_name _;
+        charset utf-8;
+        root  /usr/share/nginx/html/;
+
+        access_log /dev/stdout;
+        error_log /dev/stderr debug;
+
+        location / {
+            sendfile           on;
+            sendfile_max_chunk 1m;
+            tcp_nopush on;
+            
+            expires 30d;
+
+            gzip on;
+            gzip_types text/css application/javascript text/html;
+            
+            try_files /$host$uri /$host/index.html =404;
+        }
+    }
+kind: ConfigMap
+metadata:
+  name: static-server
+  namespace: {{ .Release.Namespace }}

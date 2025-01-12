@@ -1,0 +1,9 @@
+apiVersion: static-server.webprod.io/v1
+kind: StaticRepo
+metadata:
+  labels:
+    app.kubernetes.io/name: static-server-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: staticrepo-sample
+spec:
+  # TODO(user): Add fields here
